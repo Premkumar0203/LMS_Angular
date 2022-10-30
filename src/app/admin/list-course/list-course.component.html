@@ -1,0 +1,64 @@
+<body>
+    <div >
+               <span *ngIf=" errorMessage.length>0 "> Status: {{errorMessage}} </span>
+       <hr>
+
+       <table class="table table-striped" align="center" border="1" >
+        <thead>
+            <tr>  
+                <th>Course Name</th>
+                <th>Duration(in hours)</th>
+                <th>Technology</th>
+                <th>Description</th>
+                <th>Launch Url</th>
+                <th>Delete Course </th>
+            </tr>
+        </thead>
+        <tbody  *ngIf="Course.length == 0">
+            <td colspan="11"> No Course Available</td>
+        </tbody>
+        <tbody *ngIf="Course.length>0">
+            <tr *ngFor="let course of Course;let i = index">
+               
+                <td>{{course.courseName}}</td>
+                <td>{{course.duration}}</td>
+                <td>{{course.technlogy}}</td>
+                <td>   
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                           View Description
+                        </button>
+                        
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">{{course.courseName}} - Description</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    {{course.description}}
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>    
+                   
+                </td>
+                <td>{{course.launchUrl}}</td>
+               
+                <td><button class="btn btn-success" (click)="deleteCourse(course.courseName)">
+                     Delete </button> </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="11" >
+                    <button class="btn btn-success" (click)="CreateCourse()" > Create Course</button>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    </div>
+    </body>

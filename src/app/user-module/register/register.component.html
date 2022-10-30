@@ -1,0 +1,71 @@
+<div class="container">
+    <form [formGroup]="myForm" (ngSubmit)="Register()">
+      <span *ngIf=" errorMessage.length>0 "> Status: {{errorMessage}} </span>
+      <h2>User Registration</h2>
+      <hr>
+      <table class="table table-striped" align="center">
+        <tr>
+            <th>  
+              <label for="Name"><b>User Name : </b></label>
+            </th>
+            <th>
+              <input type="text" placeholder="Enter Author Name" name="name" id="name" 
+              formControlName="name" >
+              <span *ngIf="myForm.controls['name'].errors!=null 
+                      && myForm.controls['name'].dirty" class="error">
+                        <span *ngIf="!myForm.controls['name'].errors['name']">
+                            Please enter a valid User Name 
+              </span>
+              </span>
+            </th>
+        </tr>
+        <tr>  
+          <th>
+            <label for="Name"><b> EmailId : </b></label>
+          </th>
+          <th>
+            <input type="text" placeholder="Enter EmailId" name="emailId" id="emailId" 
+            formControlName="emailId" >
+            <span *ngIf="myForm.controls['emailId'].errors!=null 
+                    && myForm.controls['emailId'].dirty" class="error">
+                      <span *ngIf="!myForm.controls['emailId'].errors['emailId']">
+                          Please enter a valid EmailId
+            </span>
+            </span>
+          </th>
+        <tr>
+          <th>  
+              <label for="psw"><b>Password : </b></label>
+          </th>
+          <th>
+      <input type="password" placeholder="Enter Password" name="psw" id="psw" 
+             formControlName="password1">
+             <span *ngIf="myForm.controls['password1'].errors!=null 
+             && myForm.controls['password1'].dirty" class="error">
+                <span *ngIf="!myForm.controls['password1'].errors['password1']">
+                    Please enter a valid Password </span></span>
+          </th>
+        </tr>
+        <tr>
+          <th> 
+      <label for="psw-repeat"><b>Repeat Password : </b></label>
+      </th>
+      <th>
+      <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" 
+              formControlName="password2">
+              <span *ngIf="myForm.controls['password2'].errors!=null 
+              && myForm.controls['password2'].dirty" class="error">
+                 <span *ngIf="!myForm.controls['password2'].errors['password2']">
+                     Please enter a valid Repeat Password </span></span>
+      </th>
+      </tr>  
+      <tr>
+        <th colspan="2">
+            <button class="btn btn-success" type="submit" [disabled]="myForm.invalid" >
+              Register</button>
+        </th>
+      </tr>
+      </table>
+    </form>
+  </div>
+  

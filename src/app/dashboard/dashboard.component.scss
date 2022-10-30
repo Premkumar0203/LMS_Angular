@@ -1,0 +1,25 @@
+$bgColor: rgb(140, 127, 102);
+$bgColor2: rgb(77, 244, 189);
+h2{
+        background-color: rgb(118, 197, 125);
+        padding: 30px;
+        text-align: center;
+        font-size: 35px;
+        color: white;    
+}   
+    a{
+          background-color: rgba($bgColor, .5);
+          border: 2px solid rgba($bgColor, .8);
+          border-radius: 5px;
+          margin: 5px;
+          box-shadow: 1px 1px 5px 1px rgba($bgColor, 1);
+          padding: 4px;
+          text-decoration: none;
+          color:black;
+      }
+      a:hover{
+          background-color: rgba($bgColor2, .5);
+          border: 2px solid rgba($bgColor2, .8);
+          box-shadow: 1px 1px 5px 1px rgba($bgColor2, 1);
+      }
+  

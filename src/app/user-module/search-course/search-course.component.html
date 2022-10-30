@@ -1,0 +1,96 @@
+<body>
+    <div >
+      <form [formGroup]="myForm" (ngSubmit)="SearchBook()">
+        <h2> Book Search </h2> 
+        <hr>    
+          <table class="table table-striped" border ="0" text-align="center">
+              <tbody>
+                      <tr>
+                          <th>
+
+                          </th>
+                          <th>
+                              <Label>
+                                  Course Name :
+                              </Label>
+                          </th>
+                          <th>
+                            <input type ="text" name = "courseName" formControlName="courseName">
+                          </th>
+                          <th>
+                            
+                        </th>
+                      </tr>
+                      <tr>
+                          <th>
+                            
+                          </th>
+                          <th>
+                              <Label>
+                                  Technology :
+                              </Label>
+                          </th>
+                          <th>
+                              <input type ="text" name = "technology" formControlName="technology">
+                          </th>
+                          <th>
+                            
+                        </th>
+                      </tr>
+                      <tr>
+                         <th></th>
+                          <th>
+                              <Label>
+                                  Duration (in hours) :
+                              </Label>
+                          </th>
+                          <th>
+                              <input type ="number" name = "duration" value="0" formControlName="duration">
+                          </th>
+                          <th></th>
+                      </tr>
+                      <tr>
+                          <th></th>
+                          <th colspan="2" >
+                              <button type="submit" class="btn btn-success" >Search Book</button>&nbsp;
+                          </th>
+                          <th></th>
+                          
+                      </tr>
+              </tbody>
+      </table> 
+    </form>
+
+    <p *ngIf=" errorMessage.length>0 ">Status: {{errorMessage}}</p>
+           <table class="table table-striped" border="1" align="center" *ngIf=" Course.length > 0">
+            <thead>
+                <tr> 
+                    <th>Course Name</th>
+                    <th>Duration(in hours)</th>
+                    <th>Technology</th>
+                    <!-- <th>Description</th> -->
+                    <th>Launch Url</th>
+                    <th> Purchase </th>
+                </tr>
+            </thead>
+            <tbody  *ngIf="Course.length == 0">
+                <td colspan="11"> No Course Available</td>
+            </tbody>
+            <tbody *ngIf="Course.length>0">
+                <tr *ngFor="let course of Course;let i = index">
+                   
+                    <td>{{course.courseName}}</td>
+                    <td>{{course.duration}}</td>
+                    <td>{{course.technlogy}}</td>
+                    <!-- <td>                   
+                        {{course.description}}
+                    </td> -->
+                    <td>{{course.launchUrl}}</td>
+                    <td><button class="btn btn-success" (click)="courseAdd(course.courseId)">
+                        Subscribe Book </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </body>

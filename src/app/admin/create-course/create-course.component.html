@@ -1,0 +1,107 @@
+<body>
+    <br>
+    <div >
+      <form [formGroup]="myForm" (ngSubmit)="createCourse()">
+        <h3> Course - Add </h3>     
+          <table class="table table-striped" border ="0" text-align="center">
+              <tbody>
+                      <tr>
+                          <th></th>
+                          <th>
+                              <Label>
+                                  Course Name :
+                              </Label>
+                          </th>
+                          <th>
+                            <input type ="text" name = "courseName" formControlName="courseName">
+                            <span *ngIf="myForm.controls['courseName'].errors!=null 
+                            && myForm.controls['courseName'].dirty" class="error">
+                              <span *ngIf="!myForm.controls['courseName'].errors['courseName']">
+                                  Please enter a courseName and length must be minimum 20 character
+                            </span>
+                            </span>
+                          </th>                          <th></th>
+                      </tr>
+                      <tr>
+                        <th></th>
+                          <th>
+                              <Label>
+                                  Technology :
+                              </Label>
+                          </th>
+                          <th>
+                              <input type ="text" name = "technology" formControlName="technology">
+                              <span *ngIf="myForm.controls['technology'].errors!=null 
+                              && myForm.controls['technology'].dirty" class="error">
+                                <span *ngIf="!myForm.controls['technology'].errors['technology']">
+                                    Please enter a technology 
+                              </span>
+                              </span>
+                          </th>
+                          <th></th>
+                      </tr>
+                      <tr>
+                        <th></th>
+                          <th>
+                              <Label>
+                                  Duration (in hours) :
+                              </Label>
+                          </th>
+                          <th>
+                              <input type ="text" name = "duration"  formControlName="duration">
+                              <span *ngIf="myForm.controls['duration'].errors!=null 
+                              && myForm.controls['duration'].dirty" class="error">
+                                <span *ngIf="!myForm.controls['duration'].errors['duration']">
+                                    Please enter a duration which must be numeric
+                              </span>
+                              </span>
+                          </th>
+                          <th></th>
+                      </tr>
+                      <tr>
+                        <th></th>
+                        <th>
+                            <Label>
+                                Description :
+                            </Label>
+                        </th>
+                        <th>
+                            <textarea name = "description" formControlName="description">
+                            </textarea>
+                            <span *ngIf="myForm.controls['description'].errors!=null 
+                                && myForm.controls['description'].dirty" class="error">
+                                  <span *ngIf="!myForm.controls['description'].errors['description']">
+                                      Please enter a description and length must be minimum 100 character. 
+                                </span>
+                                </span>
+                        </th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th>
+                            <Label>
+                                Launch url :
+                            </Label>
+                        </th>
+                        <th>
+                            <input type ="text" name = "launchUrl" formControlName="launchUrl">
+                            <span *ngIf="myForm.controls['launchUrl'].errors!=null 
+                                && myForm.controls['launchUrl'].dirty" class="error">
+                                  <span *ngIf="!myForm.controls['launchUrl'].errors['launchUrl']">
+                                      Please enter a launchUrl. 
+                                </span>
+                                </span>
+                        </th>
+                        <th></th>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                          <th rowspan="4">
+                              <button type="submit" class="btn btn-success" >Add Course</button>&nbsp;
+                          </th>  
+                    </tr>
+                </tfoot>
+      </table> 
+    </form>
